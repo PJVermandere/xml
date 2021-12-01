@@ -9,14 +9,13 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/")
 public class IndexController {
-    private final KwadraatService kwadraatService;
+    private final KwadraatService service;
 
-    public IndexController(KwadraatService kwadraatService) {
-        this.kwadraatService = kwadraatService;
+    public IndexController(KwadraatService service) {
+        this.service = service;
     }
-
     @GetMapping
     public ModelAndView index(){
-        return new ModelAndView("index", "kwadraat", kwadraatService.kwadraatVan(4));
+        return new ModelAndView("index", "kwadraat", service.kwadraat(4));
     }
 }
